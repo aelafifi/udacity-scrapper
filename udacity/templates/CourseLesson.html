@@ -37,7 +37,7 @@
 
         <div class="col">
             <h1>{{lesson.title}}</h1>
-            <div>{{lesson.summary | markdown}}</div>
+            <div>{{(lesson.summary or '') | markdown}}</div>
             <ol style="column-count: 2;">
             {% for _concept in lesson.concepts %}
                 <li>
