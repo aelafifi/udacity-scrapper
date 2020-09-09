@@ -1,0 +1,13 @@
+<div class="position-relative">
+    <img src="http:{{atom.question.background_image}}" class="img-fluid">
+
+    {% for widget in atom.question.widgets %}
+    <div class="position-absolute border bg-warning"
+         style="
+            left: {{widget.placement.x * 100}}%;
+            top: {{widget.placement.y * 100}}%;
+            width: {{widget.placement.width * 100}}%;
+            height: {{widget.placement.height * 100}}%;
+         "></div>
+    {% endfor %}
+</div>

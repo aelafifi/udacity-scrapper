@@ -1,0 +1,4 @@
+include udacity/*.graphql
+include udacity/templates/*.html
+include udacity/templates/*/*.html
+include udacity/templates/*/*/*.html

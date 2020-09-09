@@ -1,0 +1,86 @@
+query UserBaseQuery {
+    user {
+        id
+        first_name
+        last_name
+        email
+        phone_number
+        is_phone_number_verified
+        right_to_access
+        nickname
+        preferred_language
+        affiliate_program_key
+        can_edit_content
+        facilitated_nanodegrees
+        mentored_nanodegrees
+        reviewed_nanodegrees
+
+        settings {
+            skip_classroom_welcome
+            dismissed_upgrade_ids
+            onboarding_completed_keys
+            nanodegree_feedback_viewed_counts
+            account_delete_state
+            nanodegree_feedback_share_click_keys
+            nanodegree_feedback_share_viewed_counts
+        }
+
+        social_logins {
+            provider
+            id
+        }
+        nanodegrees(start_index: 0, is_graduated: false, include_free_preview: true) {
+            id
+            key
+            title
+            locale
+            version
+            semantic_type
+            enrollment {
+                static_access {
+                    static_access
+                    access_expiry_at
+                }
+                service_model_id
+                includes_personal_mentor
+                includes_knowledge_reviews
+                includes_student_hub
+                attributes
+            }
+            version_upgrade_details {
+                updates
+                updates_affecting_graduation
+                updated_by {
+                    first_name
+                    last_name
+                }
+            }
+            user_state {
+                last_viewed_at
+            }
+        }
+        graduated_nanodegrees: nanodegrees(is_graduated: true) {
+            id
+            key
+            locale
+            version
+        }
+        courses(start_index: 0, is_graduated: false) {
+            id
+            key
+            title
+            locale
+            version
+            semantic_type
+            user_state {
+                last_viewed_at
+            }
+        }
+        graduated_courses: courses(is_graduated: true) {
+            id
+            key
+            locale
+            version
+        }
+    }
+}

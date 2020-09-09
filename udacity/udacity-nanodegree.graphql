@@ -1,0 +1,638 @@
+query PartConceptsUserStatesQuery {
+    nanodegree(key: "%s" version: "1.0.0" locale: "en-us") {
+        id
+        key
+        title
+        semantic_type
+        is_public
+        version
+        locale
+        title
+        color_scheme
+        cohorts {
+            id
+            part_keys
+            start_at
+            due_at
+            end_at
+        }
+        enrollment {
+            product_variant
+            variant
+            free_preview_status
+            free_preview_expires_at
+            high_touch
+            open_ended
+            service_model_id
+            includes_personal_mentor
+            includes_student_hub
+            includes_knowledge_reviews
+            preorder
+            started_at
+            static_access {
+                static_access
+                access_expiry_at
+            }
+            attributes
+        }
+        nd_units {
+            id
+            part_keys
+        }
+        hero_image {
+            url
+        }
+        forum_path
+        summary
+        is_graduated
+        is_term_based
+        is_default
+        packaging_options
+        project_deadlines {
+            due_at
+            node_key
+        }
+        user_state {
+            node_key
+            completed_at
+            last_viewed_at
+            unstructured
+        }
+        aggregated_state {
+            node_key
+            completion_amount
+            completed_count
+            concept_count
+            last_viewed_child_key
+            part_aggregated_states {
+                node_key
+                completed_at
+                completion_amount
+                completed_count
+                concept_count
+                last_viewed_child_key
+                module_aggregated_states {
+                    node_key
+                    completed_at
+                    completion_amount
+                    completed_count
+                    concept_count
+                    last_viewed_child_key
+                    lesson_aggregated_states {
+                        node_key
+                        completed_at
+                        completed_count
+                        concept_count
+                        completion_amount
+                        last_viewed_child_key
+                    }
+                }
+            }
+        }
+        resources {
+            files {
+                name
+                uri
+            }
+            google_plus_link
+            career_resource_center_link
+            coaching_appointments_link
+            office_hours_link
+            aws_provisioning_link
+        }
+        specializations {
+            key
+            title
+            required_count
+        }
+        parts {
+            id
+            key
+            title
+            semantic_type
+            is_public
+            version
+            locale
+            summary
+            part_type
+            is_public
+            locked_reason
+            locked_until
+            content_ready_date_ms
+            resources {
+                files {
+                    name
+                    uri
+                }
+                google_plus_link
+                career_resource_center_link
+                coaching_appointments_link
+                office_hours_link
+                aws_provisioning_link
+            }
+            image {
+                url
+                width
+                height
+            }
+            specialization {
+                key
+                image {
+                    url width height
+                }
+                video {
+                    youtube_id
+                }
+                duration_in_weeks
+                overview
+                partners
+                resources
+            }
+            modules {
+                id
+                key
+                title
+                semantic_type
+                is_public
+                version
+                locale
+                is_project_module
+                forum_path
+                lessons {
+                    id
+                    key
+                    version
+                    locale
+                    semantic_type
+                    summary
+                    title
+                    duration
+                    is_public
+                    is_project_lesson
+                    display_workspace_project_only
+                    lesson_type
+                    image {
+                        url
+                        width
+                        height
+                    }
+                    resources {
+                        files {
+                            name
+                            uri
+                        }
+                        google_plus_link
+                        career_resource_center_link
+                        coaching_appointments_link
+                        office_hours_link
+                        aws_provisioning_link
+                    }
+                    video {
+                        youtube_id
+                        china_cdn_id
+                        topher_id
+                        transcodings {
+                            uri_480p_mp4
+                            uri_720p_mp4
+                            uri_480p_1000kbps_mp4
+                        }
+                    }
+                    lab {
+                        id
+                        key
+                        version
+                        locale
+                        estimated_session_duration
+                        duration
+                        is_public
+                        semantic_type
+                        title
+                        evaluation_objective
+                        partners
+                        overview {
+                            title
+                            summary
+                            key_takeaways
+                            video {
+                                youtube_id
+                                china_cdn_id
+                                topher_id
+                                transcodings {
+                                    uri_480p_mp4
+                                    uri_720p_mp4
+                                    uri_480p_1000kbps_mp4
+                                }
+                            }
+                        }
+                        details {
+                            text
+                        }
+                        review_video {
+                            youtube_id
+                            china_cdn_id
+                            topher_id
+                            transcodings {
+                                uri_480p_mp4
+                                uri_720p_mp4
+                                uri_480p_1000kbps_mp4
+                            }
+                        }
+                        result {
+                            state
+                            skill_confidence_rating_after
+                            skill_confidence_rating_before
+                        }
+                        workspace {
+                            id
+                            key
+                            title
+                            semantic_type
+                            is_public
+                            workspace_id
+                            pool_id
+                            view_id
+                            configuration
+                            starter_files
+                        }
+                    }
+                    project {
+                        key
+                        version
+                        locale
+                        duration
+                        semantic_type
+                        title
+                        description
+                        is_public
+                        summary
+                        forum_path
+                        rubric_id
+                        terminal_project_id
+                        reviews_project_id
+                        resources {
+                            files {
+                                name
+                                uri
+                            }
+                            google_plus_link
+                            career_resource_center_link
+                            coaching_appointments_link
+                            office_hours_link
+                            aws_provisioning_link
+                        }
+                        image {
+                            url
+                            width
+                            height
+                        }
+                    }
+                    concepts {
+                        id
+                        key
+                        title
+                        semantic_type
+                        is_public
+                        user_state {
+                            node_key
+                            completed_at
+                            last_viewed_at
+                            unstructured
+                        }
+                        resources {
+                            files {
+                                name
+                                uri
+                            }
+                            google_plus_link
+                            career_resource_center_link
+                            coaching_appointments_link
+                            office_hours_link
+                            aws_provisioning_link
+                        }
+                        atoms {
+                            ...on EmbeddedFrameAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                external_uri
+                                instructor_notes
+                            }
+                            ...on TextAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                text
+                                instructor_notes
+                            }
+                            ...on TaskListAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                instructor_notes
+                                user_state {
+                                    node_key
+                                    completed_at
+                                    last_viewed_at
+                                    unstructured
+                                }
+                                tasks
+                                positive_feedback
+                                video_feedback {
+                                    youtube_id
+                                    china_cdn_id
+                                }
+                                description
+                            }
+                            ...on FlashAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                deck_id
+                                card_ids
+                                instructor_notes
+                            }
+                            ...on ImageAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                url
+                                caption
+                                alt
+                                width
+                                height
+                                instructor_notes
+                            }
+                            ...on VideoAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                instructor_notes
+                                video {
+                                    youtube_id
+                                    china_cdn_id
+                                    topher_id
+                                    transcodings {
+                                        uri_480p_mp4
+                                        uri_720p_mp4
+                                        uri_480p_1000kbps_mp4
+                                    }
+                                }
+                            }
+                            ...on ReflectAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                instructor_notes
+                                user_state {
+                                    node_key
+                                    completed_at
+                                    last_viewed_at
+                                    unstructured
+                                }
+                                question {
+                                    ...on TextQuestion {
+                                        title
+                                        semantic_type
+                                        evaluation_id
+                                        text
+                                    }
+                                }
+                                answer {
+                                    text
+                                    video {
+                                        youtube_id
+                                        china_cdn_id
+                                        topher_id
+                                        transcodings {
+                                            uri_480p_mp4
+                                            uri_720p_mp4
+                                            uri_480p_1000kbps_mp4
+                                        }
+                                    }
+                                }
+                            }
+                            ...on RadioQuizAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                instructor_notes
+                                user_state {
+                                    node_key
+                                    completed_at
+                                    last_viewed_at
+                                    unstructured
+                                }
+                                question {
+                                    prompt
+                                    answers {
+                                        id
+                                        text
+                                    }
+                                }
+                            }
+                            ...on CheckboxQuizAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                instructor_notes
+                                user_state {
+                                    node_key
+                                    completed_at
+                                    last_viewed_at
+                                    unstructured
+                                }
+                                question {
+                                    prompt
+                                    answers {
+                                        id
+                                        text
+                                    }
+                                }
+                            }
+                            ...on MatchingQuizAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                instructor_notes
+                                user_state {
+                                    node_key
+                                    completed_at
+                                    last_viewed_at
+                                    unstructured
+                                }
+                                question {
+                                    complex_prompt {
+                                        text
+                                    }
+                                    concepts_label
+                                    answers_label
+                                    concepts {
+                                        text
+                                        correct_answer {
+                                            id
+                                            text
+                                        }
+                                    }
+                                    answers {
+                                        id
+                                        text
+                                    }
+                                }
+                            }
+                            ...on ValidatedQuizAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                instructor_notes
+                                user_state {
+                                    node_key
+                                    completed_at
+                                    last_viewed_at
+                                    unstructured
+                                }
+                                question {
+                                    prompt
+                                    matchers {
+                                        ...on RegexMatcher {
+                                            expression
+                                        }
+                                    }
+                                }
+                            }
+                            ...on QuizAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                instructor_notes
+                                user_state {
+                                    node_key
+                                    completed_at
+                                    last_viewed_at
+                                    unstructured
+                                }
+                                instruction {
+                                    video {
+                                        youtube_id
+                                        china_cdn_id
+                                        topher_id
+                                        transcodings {
+                                            uri_480p_mp4
+                                            uri_720p_mp4
+                                            uri_480p_1000kbps_mp4
+                                        }
+                                    }
+                                    text
+                                }
+                                question {
+                                    ...on ImageFormQuestion {
+                                        title
+                                        alt_text
+                                        background_image
+                                        semantic_type
+                                        evaluation_id
+                                        widgets {
+                                            group
+                                            initial_value
+                                            label
+                                            marker
+                                            model
+                                            is_text_area
+                                            tabindex
+                                            placement {
+                                                height
+                                                width
+                                                x
+                                                y
+                                            }
+                                        }
+                                    }
+                                    ...on ProgrammingQuestion {
+                                        title
+                                        semantic_type
+                                        evaluation_id
+                                        initial_code_files {
+                                            text
+                                            name
+                                        }
+                                    }
+                                    ...on CodeGradedQuestion {
+                                        title
+                                        prompt
+                                        semantic_type
+                                        evaluation_id
+                                    }
+                                    ...on IFrameQuestion {
+                                        title
+                                        semantic_type
+                                        evaluation_id
+                                        initial_code_files {
+                                            text
+                                            name
+                                        }
+                                        external_iframe_uri
+                                    }
+                                    ...on TextQuestion {
+                                        title
+                                        semantic_type
+                                        evaluation_id
+                                        text
+                                    }
+                                }
+                                answer {
+                                    text
+                                    video {
+                                        youtube_id
+                                        china_cdn_id
+                                        topher_id
+                                        transcodings {
+                                            uri_480p_mp4
+                                            uri_720p_mp4
+                                            uri_480p_1000kbps_mp4
+                                        }
+                                    }
+                                }
+                            }
+                            ...on WorkspaceAtom {
+                                id
+                                key
+                                title
+                                semantic_type
+                                is_public
+                                workspace_id
+                                pool_id
+                                view_id
+                                gpu_capable
+                                configuration
+                                starter_files
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

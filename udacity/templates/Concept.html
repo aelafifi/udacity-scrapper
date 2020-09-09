@@ -1,0 +1,13 @@
+<div class="concept">
+    <h3>{{concept.title}}</h3>
+
+    {% if render_atoms %}
+        <div class="card my-3">
+            <div class="card-body">
+                {% for atom in concept.atoms %}
+                    {% include "atoms/" + atom.semantic_type + ".html" %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</div>

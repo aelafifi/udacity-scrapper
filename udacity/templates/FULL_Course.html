@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ course.title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="col-3">
+            <ul>
+            {% for lesson in course.lessons %}
+                <li>
+                    {{lesson.title}}
+                    <ul>
+                    {% for concept in lesson.concepts %}
+                        <li>{{concept.title}}</li>
+                    {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

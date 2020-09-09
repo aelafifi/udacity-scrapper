@@ -1,0 +1,18 @@
+<div class="atom task-list-atom">
+    <div class="card border">
+        <div class="card-header">
+            {{atom.title}}
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for task in atom.tasks %}
+            <li class="list-group-item">
+                <input class="d-inline-block mr-12" disabled type="checkbox"/>
+                {{task}}
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="card-footer">
+            {{atom.positive_feedback}}
+        </div>
+    </div>
+</div>

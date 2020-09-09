@@ -1,0 +1,17 @@
+<div class="atom radio-quiz-atom">
+    <div class="card border">
+        <div class="card-header">
+            {{atom.title}}
+            <br/>
+            <small class="text-muted">{{atom.question.prompt}}</small>
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for answer in atom.question.answers %}
+            <li class="list-group-item">
+                <input name="{{atom.key}}" class="d-inline-block mr-12" type="radio"/>
+                {{answer.text}}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

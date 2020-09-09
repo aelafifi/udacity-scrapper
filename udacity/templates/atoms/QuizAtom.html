@@ -1,0 +1,36 @@
+<div class="atom quiz-atom">
+    <h3>Question:</h3>
+    {% if atom.instruction.text %}
+        {{atom.instruction.text | markdown}}
+    {% endif %}
+
+    {% if atom.instruction.video.transcodings %}
+        <div class="text-center">
+            <video src="{{atom.instruction.video.transcodings.uri_720p_mp4}}" controls style="height: 480px;"></video>
+        </div>
+    {% endif %}
+
+    <hr/>
+
+    <h3>Quiz:</h3>
+    {% if atom.question.semantic_type == "ImageFormQuestion" %}
+        {% include "atoms/question/ImageFormQuestion.html" %}
+    {% elif atom.question.semantic_type == "ProgrammingQuestion" %}
+        {% include "atoms/question/ProgrammingQuestion.html" %}
+    {% else %}
+        <pre>{{atom.question | json}}</pre>
+    {% endif %}
+
+    <hr/>
+
+    <h3>Answer:</h3>
+    {% if atom.answer.text %}
+        {{atom.answer.text | markdown}}
+    {% endif %}
+
+    {% if atom.answer.video.transcodings %}
+        <div class="text-center">
+            <video src="{{atom.answer.video.transcodings.uri_720p_mp4}}" controls style="height: 480px;"></video>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,28 @@
+<div class="atom matching-quiz-atom">
+    <div class="p-16 border-left border-warning">
+        <h4>{{atom.question.complex_prompt.text}}</h4>
+
+        <div class="my-16">
+            {% for answer in atom.question.answers %}
+            <span class="d-inline-block px-8 py-4 m-4 bg-secondary text-white">{{answer.text}}</span>
+            {% endfor %}
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{atom.question.concepts_label}}</th>
+                <th>{{atom.question.answers_label}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for concept in atom.question.concepts %}
+            <tr>
+                <td>{{concept.text}}</td>
+                <td class="text-muted">{{concept.correct_answer.text}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

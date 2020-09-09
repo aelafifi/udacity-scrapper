@@ -1,0 +1,8 @@
+<div>
+    {% for file in atom.question.initial_code_files %}
+        <div class="form-group">
+            <label>{{file.name}}</label>
+            <textarea class="form-control" rows="10">{{file.text}}</textarea>
+        </div>
+    {% endfor %}
+</div>

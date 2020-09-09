@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ lesson.title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .nested-list {
+            border-left: 10px solid #ccc;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="col-3">
+            <div class="list-group">
+            {% for _lesson in course.lessons %}
+                <a href="{{'lesson-%02d.html' % loop.index}}"
+                        class="list-group-item list-group-item-action {{'active' if _lesson == lesson else ''}}">
+                    {{loop.index}}. {{_lesson.title}}</a>
+                {% if _lesson == lesson %}
+                    {% set outer_loop = loop %}
+                    {% for _concept in _lesson.concepts %}
+                        <a href="{{'concept-%02d-%02d.html' % (outer_loop.index, loop.index)}}"
+                                class="list-group-item list-group-item-action nested-list">
+                            <span class="pl-3">{{loop.index}}. {{_concept.title}}</span>
+                        </a>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="col">
+            <h1>{{lesson.title}}</h1>
+            <div>{{lesson.summary | markdown}}</div>
+            <ol style="column-count: 2;">
+            {% for _concept in lesson.concepts %}
+                <li>
+                    <a href="{{'concept-%02d-%02d.html' % (lesson_index, loop.index)}}">{{_concept.title}}</a>
+                </li>
+            {% endfor %}
+            </ol>
+        </div>
+    </div>
+</div>
+
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

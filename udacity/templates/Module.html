@@ -1,0 +1,15 @@
+<div class="module">
+<!--    <h1>{{module.title}}</h1>-->
+
+    {% if render_lessons %}
+        {% for lesson in module.lessons %}
+            {% include "Lesson.html" %}
+        {% endfor %}
+    {% elif list_lessons %}
+        <ul>
+            {% for lesson in module.lessons %}
+            <li>{{lesson.title}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

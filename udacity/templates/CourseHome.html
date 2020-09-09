@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ course.title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .nested-list {
+            border-left: 10px solid #ccc;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="col-3">
+            <div class="list-group">
+            {% for _lesson in course.lessons %}
+                <a href="{{'lesson-%02d.html' % loop.index}}"
+                        class="list-group-item list-group-item-action">
+                    {{loop.index}}. {{_lesson.title}}</a>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="col">
+            <h1>{{course.title}}</h1>
+            <div>{{course.summary | markdown}}</div>
+            <ol style="column-count: 2;">
+            {% for _lesson in course.lessons %}
+                <li>
+                    <a href="{{'lesson-%02d.html' % loop.index}}">{{_lesson.title}}</a>
+                </li>
+            {% endfor %}
+            </ol>
+        </div>
+    </div>
+</div>
+
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

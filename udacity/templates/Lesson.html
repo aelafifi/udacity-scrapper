@@ -1,0 +1,19 @@
+<div class="lesson">
+    <h2>{{lesson.title}}</h2>
+
+    {% if render_concepts %}
+        <div class="card py-3">
+            <div class="card-body">
+                {% for concept in lesson.concepts %}
+                    {% include "Concept.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    {% elif list_concepts %}
+        <ul>
+            {% for concept in lesson.concepts %}
+            <li>{{concept.title}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
