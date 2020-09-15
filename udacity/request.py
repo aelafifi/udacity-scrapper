@@ -61,6 +61,8 @@ class GraphQLRequest:
             "variables": None,
             "locale": "en-us"
         })
+        if resp.status_code // 100 != 2:
+            raise Exception(resp)
         obj = resp.json()
         data = obj['data'][kind]
         return data

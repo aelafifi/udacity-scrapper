@@ -8,6 +8,7 @@ requests = "~=2.22.0"
 Markdown = "~=3.2.2"
 Jinja2 = "~=2.11.2"
 slug = "~=2.0"
+tqdm = "~=4.48.2"
 
 [dev-packages]
 
